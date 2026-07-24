@@ -1,7 +1,11 @@
 <script setup>
-import Header from './components/Header.vue'
+import AppHeader from './components/AppHeader.vue/index.js'
 </script>
 
 <template>
-  <Header />
+  <AppHeader />
+
+  <main>
+    <router-view />
+  </main>
 </template>
