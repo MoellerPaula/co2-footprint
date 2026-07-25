@@ -8,11 +8,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-     "stylelint": "stylelint \"**/*.{css,vue}\""
+    "stylelint": "stylelint \"**/*.{css,vue}\""
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
-    "vue": "^3.5.39"
+    "vue": "^3.5.39",
+    "vue-router": "^5.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

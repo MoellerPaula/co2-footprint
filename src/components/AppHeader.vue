@@ -13,6 +13,11 @@
 </template>
 
 <style scoped>
+header {
+  border-bottom: 1px solid #c0c0c0ff;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+}
+
 img {
   width: 4rem;
   height: auto;
@@ -25,6 +30,7 @@ h1 {
 
 nav {
   padding-right: 6rem;
+  padding-bottom: 1.5rem;
 }
 
 a {
