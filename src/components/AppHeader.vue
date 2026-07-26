@@ -14,6 +14,10 @@
 
 <style scoped>
 header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
   border-bottom: 1px solid #c0c0c0ff;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
