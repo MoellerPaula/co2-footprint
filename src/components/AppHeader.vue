@@ -6,8 +6,8 @@
     </div>
 
     <nav class="d-flex justify-content-end gap-5">
-      <a href="#" class="active"> Startseite </a>
-      <a href="#">Emissionsdaten</a>
+    <RouterLink to="/">Startseite</RouterLink>
+    <RouterLink to="/emissionen">Emissionen</RouterLink>
     </nav>
   </header>
 </template>
@@ -40,7 +40,7 @@ a {
   text-decoration: none;
 }
 
-a.active {
+nav a.router-link-active {
   border-bottom: 2px solid #006b0eff;
 }
 </style>
