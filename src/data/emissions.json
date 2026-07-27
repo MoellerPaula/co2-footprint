@@ -1,0 +1,17 @@
+[
+  {
+    "company": "Unternehmen A",
+    "country": "Deutschland",
+    "emissions": 120000
+  },
+  {
+    "company": "Unternehmen B",
+    "country": "Frankreich",
+    "emissions": 95000
+  },
+  {
+    "company": "Unternehmen C",
+    "country": "USA",
+    "emissions": 250000
+  }
+]
