@@ -1,33 +1,20 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import LocalNavigation from '../components/LocalNavigation.vue';
 
-const activeSection = ref('co2-footprint');
-
-let observer;
-
-onMounted(() => {
-  const headings = document.querySelectorAll('.page-content section h2');
-
-  observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          activeSection.value = entry.target.closest('section').id;
-        }
-      });
-    },
-    {
-      rootMargin: '-190px 0px -50% 0px',
-      threshold: 0,
-    },
-  );
-
-  headings.forEach((heading) => observer.observe(heading));
-});
-
-onBeforeUnmount(() => {
-  observer?.disconnect();
-});
+const navigationItems = [
+  {
+    id: 'co2-footprint',
+    title: 'Was ist ein CO₂-Fußabdruck?',
+  },
+  {
+    id: 'importance',
+    title: 'Warum ist das wichtig?',
+  },
+  {
+    id: 'transparency',
+    title: 'Transparenz',
+  },
+];
 </script>
 
 <template>
@@ -43,16 +30,7 @@ onBeforeUnmount(() => {
       </div>
     </section>
     <div class="homepage-content">
-      <nav class="local-navigation" aria-label="Seitennavigation">
-        <h5>Auf dieser Seite</h5>
-        <a href="#co2-footprint" :class="{ active: activeSection === 'co2-footprint' }"
-          >Was ist ein CO₂-Fußabdruck?</a
-        >
-        <a href="#importance" :class="{ active: activeSection === 'importance' }"
-          >Warum ist das wichtig?</a
-        >
-        <a href="#data" :class="{ active: activeSection === 'data' }">Transparenz</a>
-      </nav>
+      <LocalNavigation :items="navigationItems" />
 
       <div class="page-content">
         <section id="co2-footprint">
@@ -97,7 +75,7 @@ onBeforeUnmount(() => {
           </p>
         </section>
 
-        <section id="data">
+        <section id="transparency">
           <h2>Transparenz</h2>
           <p>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
@@ -171,50 +149,5 @@ onBeforeUnmount(() => {
 
 .page-content section {
   scroll-margin-top: 190px;
-}
-
-.local-navigation {
-  position: sticky;
-  top: 200px;
-  flex-shrink: 0;
-  width: fit-content;
-  padding: 1.5rem 2rem;
-  background-color: rgb(0 107 14 / 25%);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.local-navigation a.active {
-  font-weight: bold;
-}
-
-.local-navigation h5 {
-  margin-top: 0;
-  font-weight: bold;
-}
-
-.local-navigation a {
-  position: relative;
-  display: block;
-  padding-left: 1rem;
-  color: black;
-  text-decoration: none;
-}
-
-.local-navigation a::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 3px;
-  height: 100%;
-  background-color: rgb(0 107 14 / 25%);
-  border-radius: 2px;
-}
-
-.local-navigation a.active::before {
-  background-color: #006b0eff;
 }
 </style>
