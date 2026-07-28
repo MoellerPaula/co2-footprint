@@ -278,6 +278,6 @@ const sortedEmissions = computed(() => {
 
 #data-context {
   margin-top: 3rem;
-  padding-bottom: 6rem;
+  padding-bottom: 8rem;
 }
 </style>

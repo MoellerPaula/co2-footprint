@@ -57,7 +57,7 @@ onBeforeUnmount(() => {
   position: sticky;
   top: 200px;
   flex-shrink: 0;
-  width: fit-content;
+  width: 300px;
   padding: 1.5rem 2rem;
   background-color: rgb(0 107 14 / 25%);
   border-radius: 12px;
