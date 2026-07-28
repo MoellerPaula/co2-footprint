@@ -1,6 +1,22 @@
 <script setup>
 import { ref, computed } from 'vue';
 import emissions from '../data/emissions.json';
+import LocalNavigation from '../components/LocalNavigation.vue';
+
+const navigationItems = [
+  {
+    id: 'overview',
+    title: 'Überblick',
+  },
+  {
+    id: 'emission-data',
+    title: 'Emissionsdaten',
+  },
+  {
+    id: 'data-context',
+    title: 'Einordnung der Daten',
+  },
+];
 
 const selectedCountry = ref('');
 const selectedCompany = ref('');
@@ -16,12 +32,10 @@ const companies = computed(() => {
 const filteredEmissions = computed(() => {
   return emissions.filter((emission) => {
     const matchesCountry =
-      selectedCountry.value === '' ||
-      emission.country === selectedCountry.value;
+      selectedCountry.value === '' || emission.country === selectedCountry.value;
 
     const matchesCompany =
-      selectedCompany.value === '' ||
-      emission.company === selectedCompany.value;
+      selectedCompany.value === '' || emission.company === selectedCompany.value;
 
     return matchesCountry && matchesCompany;
   });
@@ -30,92 +44,104 @@ const filteredEmissions = computed(() => {
 
 <template>
   <div class="emission-data">
-    <h1>CO₂-Emissionen von Unternehmen</h1>
+    <div class="emission-data-content">
+      <LocalNavigation :items="navigationItems"/>
 
-    <p class="introduction">
-      Die folgende Übersicht zeigt die CO₂-Emissionen verschiedener
-      Unternehmen und Länder. Nutzen Sie die Filter, um gezielt nach
-      einem Unternehmen oder einem Land zu suchen und die Daten
-      miteinander zu vergleichen.
-    </p>
+      <div class="page-content">
+        <section id="overview">
+          <h2>CO₂-Emissionen von Unternehmen</h2>
 
-    <div class="filters">
-      <div class="filter">
-        <label for="country-filter">Land:</label>
+          <p class="introduction">
+            Die folgende Übersicht zeigt die CO₂-Emissionen verschiedener Unternehmen und Länder.
+            Nutzen Sie die Filter, um gezielt nach einem Unternehmen oder einem Land zu suchen und
+            die Daten miteinander zu vergleichen.
+          </p>
+        </section>
 
-        <select id="country-filter" v-model="selectedCountry">
-          <option value="">Alle Länder</option>
+        <section id="emission-data">
+          <h2>Emissionsdaten</h2>
+          <div class="filters">
+            <div class="filter">
+              <label for="country-filter">Land:</label>
 
-          <option
-            v-for="country in countries"
-            :key="country"
-            :value="country"
-          >
-            {{ country }}
-          </option>
-        </select>
-      </div>
+              <select id="country-filter" v-model="selectedCountry">
+                <option value="">Alle Länder</option>
 
-      <div class="filter">
-        <label for="company-filter">Unternehmen:</label>
+                <option v-for="country in countries" :key="country" :value="country">
+                  {{ country }}
+                </option>
+              </select>
+            </div>
 
-        <select id="company-filter" v-model="selectedCompany">
-          <option value="">Alle Unternehmen</option>
+            <div class="filter">
+              <label for="company-filter">Unternehmen:</label>
 
-          <option
-            v-for="company in companies"
-            :key="company"
-            :value="company"
-          >
-            {{ company }}
-          </option>
-        </select>
+              <select id="company-filter" v-model="selectedCompany">
+                <option value="">Alle Unternehmen</option>
+
+                <option v-for="company in companies" :key="company" :value="company">
+                  {{ company }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Unternehmen</th>
+                <th>Land</th>
+                <th>CO₂-Emissionen</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr v-for="emission in filteredEmissions" :key="emission.company">
+                <td>{{ emission.company }}</td>
+                <td>{{ emission.country }}</td>
+                <td>{{ emission.emissions.toLocaleString('de-DE') }} t</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="data-context">
+          <h2>Einordnung der Daten</h2>
+
+          <p>
+            Die dargestellten Werte dienen der Übersicht und dem Vergleich der CO₂-Emissionen. Die
+            Höhe der Emissionen kann von verschiedenen Faktoren beeinflusst werden, beispielsweise
+            von der Größe eines Unternehmens, seiner Branche und seinen Produktionsstandorten. Ein
+            direkter Vergleich zwischen Unternehmen sollte daher immer unter Berücksichtigung dieser
+            Faktoren erfolgen.
+          </p>
+        </section>
       </div>
     </div>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Unternehmen</th>
-          <th>Land</th>
-          <th>CO₂-Emissionen</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr
-          v-for="emission in filteredEmissions"
-          :key="emission.company"
-        >
-          <td>{{ emission.company }}</td>
-          <td>{{ emission.country }}</td>
-          <td>{{ emission.emissions.toLocaleString('de-DE') }} t</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <section class="data-context">
-      <h2>Einordnung der Daten</h2>
-
-      <p>
-        Die dargestellten Werte dienen der Übersicht und dem Vergleich
-        der CO₂-Emissionen. Die Höhe der Emissionen kann von verschiedenen
-        Faktoren beeinflusst werden, beispielsweise von der Größe eines
-        Unternehmens, seiner Branche und seinen Produktionsstandorten.
-        Ein direkter Vergleich zwischen Unternehmen sollte daher immer
-        unter Berücksichtigung dieser Faktoren erfolgen.
-      </p>
-    </section>
-
   </div>
 </template>
 
 <style scoped>
 .emission-data {
+  width: 100%;
+}
+
+.emission-data-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
   margin: 2rem;
 }
 
-.emission-data h1 {
+.page-content {
+  flex: 1;
+}
+
+.page-content section {
+  scroll-margin-top: 190px;
+}
+
+.introduction {
   margin-bottom: 3rem;
 }
 
@@ -151,24 +177,20 @@ const filteredEmissions = computed(() => {
 }
 
 .emission-data th {
-  background-color: rgb(0 107 14 / 80%);
+  background-color: rgb(0 107 14 / 70%);
   color: white;
 }
 
-.emission-data tr:hover {
-  background-color: #f5f5f5;
+.emission-data tbody tr:nth-child(even) {
+  background-color: rgb(0 107 14 / 5%);
+}
+
+.emission-data tbody tr:hover {
+  background-color: rgb(0 107 14 / 10%);
 }
 
 .emission-data tbody tr:last-child td {
   border-bottom: none;
-}
-
-.emission-data tbody tr:nth-child(even) {
-  background-color: rgb(0 107 14 / 15%);
-}
-
-.introduction {
-  margin-bottom: 3rem;
 }
 
 .data-context {
@@ -177,5 +199,18 @@ const filteredEmissions = computed(() => {
 
 .data-context h2 {
   margin-bottom: 1rem;
+}
+
+#emission-data {
+  margin-top: 2rem;
+}
+
+#emission-data h2 {
+  margin-bottom: 2rem;
+}
+
+#data-context {
+  margin-top: 3rem;
+  padding-bottom: 6rem;
 }
 </style>

@@ -24,7 +24,7 @@ onMounted(() => {
       });
     },
     {
-      rootMargin: '-190px 0px -65% 0px',
+      rootMargin: '-190px 0px -60% 0px',
       threshold: 0,
     },
   );
