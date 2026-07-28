@@ -33,11 +33,15 @@ const sortBy = (column) => {
 };
 
 const countries = computed(() => {
-  return [...new Set(emissions.map((emission) => emission.country))];
+  return [...new Set(emissions.map((emission) => emission.country))].sort((a, b) =>
+    a.localeCompare(b, 'de'),
+  );
 });
 
 const companies = computed(() => {
-  return [...new Set(emissions.map((emission) => emission.company))];
+  return [...new Set(emissions.map((emission) => emission.company))].sort((a, b) =>
+    a.localeCompare(b, 'de'),
+  );
 });
 
 const filteredEmissions = computed(() => {
@@ -132,7 +136,7 @@ const sortedEmissions = computed(() => {
               <tr>
                 <th @click="sortBy('company')">
                   Unternehmen
-                  <span v-if="sortColumn !== 'company'">▲▼</span> 
+                  <span v-if="sortColumn !== 'company'">▲▼</span>
                   <span v-else>
                     {{ sortDirection === 'asc' ? '▲' : '▼' }}
                   </span>
@@ -157,7 +161,7 @@ const sortedEmissions = computed(() => {
             </thead>
 
             <tbody>
-              <tr v-for="emission in sortedEmissions" :key="emission.company">
+              <tr v-for="emission in sortedEmissions" :key="emission.id">
                 <td>{{ emission.company }}</td>
                 <td>{{ emission.country }}</td>
                 <td>{{ emission.emissions.toLocaleString('de-DE') }} t</td>
