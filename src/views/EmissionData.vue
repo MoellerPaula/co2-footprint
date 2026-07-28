@@ -20,6 +20,17 @@ const navigationItems = [
 
 const selectedCountry = ref('');
 const selectedCompany = ref('');
+const sortColumn = ref('');
+const sortDirection = ref('asc');
+
+const sortBy = (column) => {
+  if (sortColumn.value === column) {
+    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc';
+  } else {
+    sortColumn.value = column;
+    sortDirection.value = 'asc';
+  }
+};
 
 const countries = computed(() => {
   return [...new Set(emissions.map((emission) => emission.country))];
@@ -40,12 +51,42 @@ const filteredEmissions = computed(() => {
     return matchesCountry && matchesCompany;
   });
 });
+
+const sortedEmissions = computed(() => {
+  const sorted = [...filteredEmissions.value];
+
+  if (!sortColumn.value) {
+    return sorted;
+  }
+
+  sorted.sort((a, b) => {
+    let valueA = a[sortColumn.value];
+    let valueB = b[sortColumn.value];
+
+    if (typeof valueA === 'string') {
+      valueA = valueA.toLowerCase();
+      valueB = valueB.toLowerCase();
+    }
+
+    if (valueA < valueB) {
+      return sortDirection.value === 'asc' ? -1 : 1;
+    }
+
+    if (valueA > valueB) {
+      return sortDirection.value === 'asc' ? 1 : -1;
+    }
+
+    return 0;
+  });
+
+  return sorted;
+});
 </script>
 
 <template>
   <div class="emission-data">
     <div class="emission-data-content">
-      <LocalNavigation :items="navigationItems"/>
+      <LocalNavigation :items="navigationItems" />
 
       <div class="page-content">
         <section id="overview">
@@ -89,14 +130,34 @@ const filteredEmissions = computed(() => {
           <table>
             <thead>
               <tr>
-                <th>Unternehmen</th>
-                <th>Land</th>
-                <th>CO₂-Emissionen</th>
+                <th @click="sortBy('company')">
+                  Unternehmen
+                  <span v-if="sortColumn !== 'company'">▲▼</span> 
+                  <span v-else>
+                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                  </span>
+                </th>
+
+                <th @click="sortBy('country')">
+                  Land
+                  <span v-if="sortColumn !== 'country'">▲▼</span>
+                  <span v-else>
+                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                  </span>
+                </th>
+
+                <th @click="sortBy('emissions')">
+                  Emissionen
+                  <span v-if="sortColumn !== 'emissions'">▲▼</span>
+                  <span v-else>
+                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                  </span>
+                </th>
               </tr>
             </thead>
 
             <tbody>
-              <tr v-for="emission in filteredEmissions" :key="emission.company">
+              <tr v-for="emission in sortedEmissions" :key="emission.company">
                 <td>{{ emission.company }}</td>
                 <td>{{ emission.country }}</td>
                 <td>{{ emission.emissions.toLocaleString('de-DE') }} t</td>
@@ -179,6 +240,12 @@ const filteredEmissions = computed(() => {
 .emission-data th {
   background-color: rgb(0 107 14 / 70%);
   color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+.emission-data th:hover {
+  background-color: rgb(0 107 14 / 80%);
 }
 
 .emission-data tbody tr:nth-child(even) {
