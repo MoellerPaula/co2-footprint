@@ -1,17 +1,224 @@
 [
   {
-    "company": "Unternehmen A",
+    "id": 1,
+    "company": "Grüne Energie GmbH",
     "country": "Deutschland",
-    "emissions": 120000
+    "emissions": 125000
   },
   {
-    "company": "Unternehmen B",
+    "id": 2,
+    "company": "Rhein Energie Solutions",
+    "country": "Deutschland",
+    "emissions": 89000
+  },
+  {
+    "id": 3,
+    "company": "Nord Industrie",
+    "country": "Deutschland",
+    "emissions": 210000
+  },
+  {
+    "id": 4,
+    "company": "Coper Group",
     "country": "Frankreich",
-    "emissions": 95000
+    "emissions": 143000
   },
   {
-    "company": "Unternehmen C",
+    "id": 5,
+    "company": "IndustrieVerte",
+    "country": "Frankreich",
+    "emissions": 97000
+  },
+  {
+    "id": 6,
+    "company": "Atlantic Energy Group",
+    "country": "Vereinigtes Königreich",
+    "emissions": 185000
+  },
+  {
+    "id": 7,
+    "company": "Britannia Manufacturing",
+    "country": "Vereinigtes Königreich",
+    "emissions": 112000
+  },
+  {
+    "id": 8,
+    "company": "Coper Group",
+    "country": "Italien",
+    "emissions": 134000
+  },
+  {
+    "id": 9,
+    "company": "Verde Energia",
+    "country": "Italien",
+    "emissions": 76000
+  },
+  {
+    "id": 10,
+    "company": "Espania Solar Systems",
+    "country": "Spanien",
+    "emissions": 108000
+  },
+  {
+    "id": 11,
+    "company": "Sol Verde",
+    "country": "Spanien",
+    "emissions": 68000
+  },
+  {
+    "id": 12,
+    "company": "Dutch Sustainable Systems",
+    "country": "Niederlande",
+    "emissions": 92000
+  },
+  {
+    "id": 13,
+    "company": "Coper Group",
+    "country": "Niederlande",
+    "emissions": 157000
+  },
+  {
+    "id": 14,
+    "company": "Polska Industries",
+    "country": "Polen",
+    "emissions": 176000
+  },
+  {
+    "id": 15,
+    "company": "Coper Group",
+    "country": "Polen",
+    "emissions": 84000
+  },
+  {
+    "id": 16,
+    "company": "Pacific Manufacturing",
     "country": "USA",
-    "emissions": 250000
+    "emissions": 420000
+  },
+  {
+    "id": 17,
+    "company": "US Military Manufacturing",
+    "country": "USA",
+    "emissions": 580000
+  },
+  {
+    "id": 18,
+    "company": "Maple Industries",
+    "country": "USA",
+    "emissions": 315000
+  },
+  {
+    "id": 19,
+    "company": "Pacific Manufacturing",
+    "country": "Kanada",
+    "emissions": 168000
+  },
+  {
+    "id": 20,
+    "company": "Maple Industries",
+    "country": "Kanada",
+    "emissions": 97000
+  },
+  {
+    "id": 21,
+    "company": "Mexico Industrial Group",
+    "country": "Mexiko",
+    "emissions": 145000
+  },
+  {
+    "id": 22,
+    "company": "Sol Azteca Manufacturing",
+    "country": "Mexiko",
+    "emissions": 88000
+  },
+  {
+    "id": 23,
+    "company": "Sino Industrial Group",
+    "country": "China",
+    "emissions": 620000
+  },
+  {
+    "id": 24,
+    "company": "Eastern Energy Corporation",
+    "country": "China",
+    "emissions": 710000
+  },
+  {
+    "id": 25,
+    "company": "Pacific Manufacturing",
+    "country": "China",
+    "emissions": 485000
+  },
+  {
+    "id": 26,
+    "company": "Pacific Manufacturing",
+    "country": "Japan",
+    "emissions": 198000
+  },
+  {
+    "id": 27,
+    "company": "Nippon Energy Group",
+    "country": "Japan",
+    "emissions": 245000
+  },
+  {
+    "id": 28,
+    "company": "India Manufacturing Corporation",
+    "country": "Indien",
+    "emissions": 390000
+  },
+  {
+    "id": 29,
+    "company": "Bharat Energy Systems",
+    "country": "Indien",
+    "emissions": 475000
+  },
+  {
+    "id": 30,
+    "company": "Korea Solutions",
+    "country": "Südkorea",
+    "emissions": 225000
+  },
+  {
+    "id": 31,
+    "company": "Seoul Energy Corporation",
+    "country": "Südkorea",
+    "emissions": 174000
+  },
+  {
+    "id": 32,
+    "company": "Australian Resources Group",
+    "country": "Australien",
+    "emissions": 265000
+  },
+  {
+    "id": 33,
+    "company": "Southern Cross Industries",
+    "country": "Australien",
+    "emissions": 142000
+  },
+  {
+    "id": 34,
+    "company": "Coper Group",
+    "country": "Brasilien",
+    "emissions": 210000
+  },
+  {
+    "id": 35,
+    "company": "Amazonia Technologies",
+    "country": "Brasilien",
+    "emissions": 128000
+  },
+  {
+    "id": 36,
+    "company": "South African Mining Group",
+    "country": "Südafrika",
+    "emissions": 235000
+  },
+  {
+    "id": 37,
+    "company": "Cape Ocean Energy",
+    "country": "Südafrika",
+    "emissions": 119000
   }
 ]
