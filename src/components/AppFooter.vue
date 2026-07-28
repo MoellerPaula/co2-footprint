@@ -11,9 +11,9 @@
       </div>
 
       <nav class="footer-navigation" aria-label="Rechtliche Informationen">
-        <a href="#">Impressum</a>
-        <a href="#">Datenschutz</a>
-        <a href="#">Rechtliche Hinweise</a>
+        <RouterLink to="/impressum">Impressum</RouterLink>
+        <RouterLink to="/datenschutz">Datenschutz</RouterLink>
+        <RouterLink to="/rechtliche-hinweise">Rechtliche Hinweise</RouterLink>
       </nav>
     </div>
   </footer>
