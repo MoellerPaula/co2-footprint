@@ -164,4 +164,8 @@
 .page-content p {
   line-height: 1.6;
 }
+
+.page-content a {
+  color: #006b0e;
+}
 </style>
