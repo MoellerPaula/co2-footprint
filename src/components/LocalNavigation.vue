@@ -9,10 +9,22 @@ const props = defineProps({
 });
 
 const activeSection = ref(props.items[0]?.id || '');
+const isOpen = ref(false);
+const isMobile = ref(false);
+
+const updateViewport = () => {
+  isMobile.value = window.innerWidth <= 768;
+
+  if (!isMobile.value) {
+    isOpen.value = true;
+  }
+};
 
 let observer;
 
 onMounted(() => {
+  updateViewport();
+  window.addEventListener('resize', updateViewport);
   const headings = document.querySelectorAll('.page-content section h2');
 
   observer = new IntersectionObserver(
@@ -34,13 +46,20 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   observer?.disconnect();
+  window.removeEventListener('resize', updateViewport);
 });
 </script>
 
 <template>
   <nav class="local-navigation">
-    <h5>Auf dieser Seite</h5>
+    <h5 class="navigation-title" @click="isMobile && (isOpen = !isOpen)">
+      Auf dieser Seite
+      <span v-if="isMobile">
+        {{ isOpen ? '▲' : '▼' }}
+      </span>
+    </h5>
 
+    <div class="navigation-links" :class="{ open: isOpen || !isMobile }" >
     <a
       v-for="item in items"
       :key="item.id"
@@ -49,6 +68,7 @@ onBeforeUnmount(() => {
     >
       {{ item.title }}
     </a>
+    </div>
   </nav>
 </template>
 
@@ -59,8 +79,14 @@ onBeforeUnmount(() => {
   flex-shrink: 0;
   width: 300px;
   padding: 1.5rem 2rem;
-  background-color: rgb(0 107 14 / 25%);
+  background-color: rgb(191 218 195);
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.navigation-links {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -96,5 +122,46 @@ onBeforeUnmount(() => {
 
 .local-navigation a.active::before {
   background-color: #006b0e;
+}
+
+.navigation-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (width <= 768px) {
+  .homepage-content,
+  .emission-data-content {
+    flex-direction: column;
+    margin: 1rem;
+    align-items: stretch;
+  }
+
+  .local-navigation {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navigation-title {
+    position: sticky;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .navigation-links {
+    display: none;
+  }
+
+  .navigation-links.open {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 </style>

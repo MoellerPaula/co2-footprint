@@ -198,6 +198,13 @@ const sortedEmissions = computed(() => {
   margin: 2rem;
 }
 
+@media (width <= 768px) {
+  .emission-data-content {
+    flex-direction: column;
+    margin: 1rem;
+  }
+}
+
 .page-content {
   flex: 1;
 }

@@ -147,6 +147,13 @@ const navigationItems = [
   margin: 2rem;
 }
 
+@media (width <= 768px) {
+  .homepage-content {
+    flex-direction: column;
+    margin: 1rem;
+  }
+}
+
 .page-content section {
   scroll-margin-top: 190px;
 }
