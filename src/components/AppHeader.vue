@@ -6,8 +6,8 @@
     </div>
 
     <nav class="d-flex justify-content-end gap-5">
-    <RouterLink to="/">Startseite</RouterLink>
-    <RouterLink to="/emissionen">Emissionen</RouterLink>
+      <RouterLink to="/">Startseite</RouterLink>
+      <RouterLink to="/emissionen">Emissionen</RouterLink>
     </nav>
   </header>
 </template>
@@ -46,5 +46,36 @@ a {
 
 nav a.router-link-active {
   border-bottom: 2px solid #006b0eff;
+}
+
+@media (width <= 768px) {
+  header {
+    padding-left: 1rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  header > div {
+    gap: 1rem !important;
+  }
+
+  img {
+    width: 2.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  nav {
+    padding-right: 1rem;
+    padding-bottom: 0;
+    margin-top: 1rem;
+    gap: 1rem !important;
+  }
+
+  a {
+    font-size: 1rem;
+  }
 }
 </style>
