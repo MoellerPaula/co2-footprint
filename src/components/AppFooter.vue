@@ -2,10 +2,7 @@
   <footer class="app-footer">
     <div class="footer-content">
       <div class="footer-brand">
-        <img
-          src="../assets/LogoCO2Fußabdruck.negativ.svg"
-          alt="Logo"
-        />
+        <img src="../assets/LogoCO2Fußabdruck.negativ.svg" alt="Logo" />
 
         <h2>CO₂ Fußabdruck</h2>
       </div>
@@ -56,5 +53,38 @@
 .footer-navigation a {
   color: white;
   text-decoration: none;
+}
+
+@media (width <= 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .footer-brand {
+    gap: 0.75rem;
+  }
+
+  .footer-brand img {
+    width: 2.5rem;
+    height: auto;
+  }
+
+  .footer-brand h2 {
+    font-size: 1.3rem;
+  }
+
+  .footer-navigation {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-navigation a {
+    font-size: 0.85rem;
+  }
 }
 </style>
