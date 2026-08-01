@@ -59,15 +59,15 @@ onBeforeUnmount(() => {
       </span>
     </h5>
 
-    <div class="navigation-links" :class="{ open: isOpen || !isMobile }" >
-    <a
-      v-for="item in items"
-      :key="item.id"
-      :href="`#${item.id}`"
-      :class="{ active: activeSection === item.id }"
-    >
-      {{ item.title }}
-    </a>
+    <div class="navigation-links" :class="{ open: isOpen || !isMobile }">
+      <a
+        v-for="item in items"
+        :key="item.id"
+        :href="`#${item.id}`"
+        :class="{ active: activeSection === item.id }"
+      >
+        {{ item.title }}
+      </a>
     </div>
   </nav>
 </template>
@@ -135,10 +135,10 @@ onBeforeUnmount(() => {
   .emission-data-content {
     flex-direction: column;
     margin: 1rem;
-    align-items: stretch;
   }
 
   .local-navigation {
+    top: 125px;
     width: 100%;
     box-sizing: border-box;
   }
