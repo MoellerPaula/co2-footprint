@@ -105,6 +105,7 @@ const sortedEmissions = computed(() => {
 
         <section id="emission-data">
           <h2>Emissionsdaten</h2>
+
           <div class="filters">
             <div class="filter">
               <label for="country-filter">Land:</label>
@@ -131,43 +132,45 @@ const sortedEmissions = computed(() => {
             </div>
           </div>
 
-          <table>
-            <thead>
-              <tr>
-                <th @click="sortBy('company')">
-                  Unternehmen
-                  <span v-if="sortColumn !== 'company'">▲▼</span>
-                  <span v-else>
-                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
-                  </span>
-                </th>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th @click="sortBy('company')">
+                    Unternehmen
+                    <span v-if="sortColumn !== 'company'">▲▼</span>
+                    <span v-else>
+                      {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                    </span>
+                  </th>
 
-                <th @click="sortBy('country')">
-                  Land
-                  <span v-if="sortColumn !== 'country'">▲▼</span>
-                  <span v-else>
-                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
-                  </span>
-                </th>
+                  <th @click="sortBy('country')">
+                    Land
+                    <span v-if="sortColumn !== 'country'">▲▼</span>
+                    <span v-else>
+                      {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                    </span>
+                  </th>
 
-                <th @click="sortBy('emissions')">
-                  Emissionen
-                  <span v-if="sortColumn !== 'emissions'">▲▼</span>
-                  <span v-else>
-                    {{ sortDirection === 'asc' ? '▲' : '▼' }}
-                  </span>
-                </th>
-              </tr>
-            </thead>
+                  <th @click="sortBy('emissions')">
+                    Emissionen
+                    <span v-if="sortColumn !== 'emissions'">▲▼</span>
+                    <span v-else>
+                      {{ sortDirection === 'asc' ? '▲' : '▼' }}
+                    </span>
+                  </th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <tr v-for="emission in sortedEmissions" :key="emission.id">
-                <td>{{ emission.company }}</td>
-                <td>{{ emission.country }}</td>
-                <td>{{ emission.emissions.toLocaleString('de-DE') }} t</td>
-              </tr>
-            </tbody>
-          </table>
+              <tbody>
+                <tr v-for="emission in sortedEmissions" :key="emission.id">
+                  <td>{{ emission.company }}</td>
+                  <td>{{ emission.country }}</td>
+                  <td>{{ emission.emissions.toLocaleString('de-DE') }} t</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <section id="data-context">
@@ -202,11 +205,14 @@ const sortedEmissions = computed(() => {
   .emission-data-content {
     flex-direction: column;
     margin: 1rem;
+    width: auto;
+    max-width: 100%;
   }
 }
 
 .page-content {
-  flex: 1;
+  width: 100%;
+  max-width: 100%;
 }
 
 .page-content section {
@@ -219,12 +225,19 @@ const sortedEmissions = computed(() => {
 
 .filters {
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .filter label {
-  margin-right: 1rem;
+  margin-right: 0;
   font-weight: bold;
 }
 
@@ -271,24 +284,25 @@ const sortedEmissions = computed(() => {
   border-bottom: none;
 }
 
-.data-context {
-  margin-top: 4rem;
-}
-
-.data-context h2 {
-  margin-bottom: 1rem;
-}
-
 #emission-data {
   margin-top: 2rem;
 }
 
 #emission-data h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 #data-context {
   margin-top: 3rem;
-  padding-bottom: 8rem;
+  padding-bottom: 2rem;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-wrapper table {
+  min-width: 600px;
 }
 </style>
