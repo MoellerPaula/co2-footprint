@@ -143,6 +143,14 @@ onBeforeUnmount(() => {
     box-sizing: border-box;
   }
 
+  .local-navigation h5 {
+    font-size: 0.95rem;
+  }
+
+  .local-navigation a {
+    font-size: 0.85rem;
+  }
+
   .filters {
     flex-direction: column;
     gap: 1rem;
