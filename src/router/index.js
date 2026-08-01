@@ -32,9 +32,11 @@ const router = createRouter({
       path: '/rechtliche-hinweise',
       name: 'legal-notice',
       component: LegalNotice,
-    }
-
+    },
   ],
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 
 export default router;
