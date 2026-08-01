@@ -201,15 +201,6 @@ const sortedEmissions = computed(() => {
   margin: 2rem;
 }
 
-@media (width <= 768px) {
-  .emission-data-content {
-    flex-direction: column;
-    margin: 1rem;
-    width: auto;
-    max-width: 100%;
-  }
-}
-
 .page-content {
   width: 100%;
   max-width: 100%;
@@ -225,8 +216,7 @@ const sortedEmissions = computed(() => {
 
 .filters {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -304,5 +294,33 @@ const sortedEmissions = computed(() => {
 
 .table-wrapper table {
   min-width: 600px;
+}
+
+@media (width <= 768px) {
+  .emission-data-content {
+    flex-direction: column;
+    margin: 1rem;
+    width: auto;
+    max-width: 100%;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .filter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .filter label {
+    margin-right: 0;
+  }
+
+  #data-context {
+    padding-bottom: 2rem;
+  }  
 }
 </style>
