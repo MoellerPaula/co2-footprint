@@ -157,4 +157,27 @@ const navigationItems = [
 .page-content section {
   scroll-margin-top: 190px;
 }
+
+@media (width <= 768px) {
+  .hero {
+    margin: 1rem;
+  }
+
+  .hero img {
+    height: 220px;
+  }
+
+  .hero-text {
+    width: 85%;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
 </style>
