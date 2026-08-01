@@ -1,5 +1,42 @@
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+const isVisible = ref(true);
+
+let lastScrollPosition = 0;
+
+const isMobile = () => window.innerWidth <= 768;
+
+const handleScroll = () => {
+  if (!isMobile()) {
+    isVisible.value = true;
+    return;
+  }
+
+  const currentScrollPosition = window.scrollY;
+
+  if (currentScrollPosition <= 0) {
+    isVisible.value = true;
+  } else if (currentScrollPosition > lastScrollPosition) {
+    isVisible.value = false;
+  } else {
+    isVisible.value = true;
+  }
+
+  lastScrollPosition = currentScrollPosition;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+</script>
+
 <template>
-  <header class="ps-5 pt-5">
+  <header class="ps-5 pt-5" :class="{ hidden: !isVisible }">
     <div class="d-flex align-items-center gap-5">
       <img src="../assets/LogoCO2Fußabdruck3.svg" alt="Logo" />
       <h1>CO₂ Fußabdruck</h1>
@@ -53,6 +90,11 @@ nav a.router-link-active {
     padding-left: 1rem !important;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  header.hidden {
+    transform: translateY(-100%);
   }
 
   header > div {
@@ -71,7 +113,7 @@ nav a.router-link-active {
     padding-right: 1rem;
     padding-bottom: 0;
     margin-top: 1rem;
-    gap: 1rem !important;
+    gap: 1rem;
   }
 
   a {
