@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
 
 const props = defineProps({
   items: {
@@ -12,13 +12,29 @@ const activeSection = ref(props.items[0]?.id || '');
 const scrollingUp = ref(false);
 
 let lastScrollPosition = 0;
+let isScrollingToAnchor = false;
 
 const handleScroll = () => {
   if (window.innerWidth > 768) return;
+  if (isScrollingToAnchor) return;
 
   const current = window.scrollY;
   scrollingUp.value = current < lastScrollPosition;
   lastScrollPosition = current;
+};
+
+const handleLinkClick = async (event, id) => {
+  event.preventDefault();
+  scrollingUp.value = true;
+  isScrollingToAnchor = true;
+
+  await nextTick();
+
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+
+  setTimeout(() => {
+    isScrollingToAnchor = false;
+  }, 800);
 };
 
 const isOpen = ref(false);
@@ -79,6 +95,7 @@ onBeforeUnmount(() => {
         :key="item.id"
         :href="`#${item.id}`"
         :class="{ active: activeSection === item.id }"
+        @click="handleLinkClick($event, item.id)"
       >
         {{ item.title }}
       </a>
