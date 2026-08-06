@@ -1,42 +1,22 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-const isVisible = ref(true);
-
+const scrollingUp = ref(false);
 let lastScrollPosition = 0;
 
-const isMobile = () => window.innerWidth <= 768;
-
 const handleScroll = () => {
-  if (!isMobile()) {
-    isVisible.value = true;
-    return;
-  }
-
-  const currentScrollPosition = window.scrollY;
-
-  if (currentScrollPosition <= 0) {
-    isVisible.value = true;
-  } else if (currentScrollPosition > lastScrollPosition) {
-    isVisible.value = false;
-  } else {
-    isVisible.value = true;
-  }
-
-  lastScrollPosition = currentScrollPosition;
+  if (window.innerWidth > 768) return;
+  const current = window.scrollY;
+  scrollingUp.value = current < lastScrollPosition;
+  lastScrollPosition = current;
 };
 
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
+onMounted(() => window.addEventListener('scroll', handleScroll));
+onBeforeUnmount(() => window.removeEventListener('scroll', handleScroll));
 </script>
 
 <template>
-  <header class="ps-5 pt-5" :class="{ hidden: !isVisible }">
+  <header class="ps-5 pt-5" :class="{ 'scrolling-up': scrollingUp }">
     <div class="d-flex align-items-center gap-5">
       <img src="../assets/LogoCO2Fußabdruck3.svg" alt="Logo" />
       <h1>CO₂ Fußabdruck</h1>
@@ -90,11 +70,24 @@ nav a.router-link-active {
     padding-left: 1rem !important;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
-    transition: transform 0.3s ease-in-out;
+    position: relative;
+    top: auto;
   }
 
-  header.hidden {
-    transform: translateY(-100%);
+  header.scrolling-up {
+    position: sticky;
+    top: 0;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slide-down {
+    from {
+      transform: translateY(-100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
   }
 
   header > div {
