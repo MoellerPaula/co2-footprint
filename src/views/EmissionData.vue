@@ -321,6 +321,22 @@ const sortedEmissions = computed(() => {
 
   #data-context {
     padding-bottom: 2rem;
-  }  
+  }
+
+  .emission-data th,
+  .emission-data td {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  .filter label,
+  .filter select {
+    font-size: 0.85rem;
+  }
+
+  .table-wrapper table {
+    width: auto;
+    min-width: unset;
+  }
 }
 </style>
