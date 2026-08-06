@@ -9,6 +9,18 @@ const props = defineProps({
 });
 
 const activeSection = ref(props.items[0]?.id || '');
+const scrollingUp = ref(false);
+
+let lastScrollPosition = 0;
+
+const handleScroll = () => {
+  if (window.innerWidth > 768) return;
+
+  const current = window.scrollY;
+  scrollingUp.value = current < lastScrollPosition;
+  lastScrollPosition = current;
+};
+
 const isOpen = ref(false);
 const isMobile = ref(false);
 
@@ -25,6 +37,7 @@ let observer;
 onMounted(() => {
   updateViewport();
   window.addEventListener('resize', updateViewport);
+  window.addEventListener('scroll', handleScroll);
   const headings = document.querySelectorAll('.page-content section h2');
 
   observer = new IntersectionObserver(
@@ -47,11 +60,12 @@ onMounted(() => {
 onBeforeUnmount(() => {
   observer?.disconnect();
   window.removeEventListener('resize', updateViewport);
+  window.removeEventListener('scroll', handleScroll);
 });
 </script>
 
 <template>
-  <nav class="local-navigation">
+  <nav class="local-navigation" :class="{ 'scrolling-up': scrollingUp }">
     <h5 class="navigation-title" @click="isMobile && (isOpen = !isOpen)">
       Auf dieser Seite
       <span v-if="isMobile">
@@ -138,9 +152,28 @@ onBeforeUnmount(() => {
   }
 
   .local-navigation {
-    top: 125px;
+    position: relative;
+    top: auto;
     width: 100%;
     box-sizing: border-box;
+  }
+
+  .local-navigation.scrolling-up {
+    position: sticky;
+    top: 125px;
+    animation: slide-down 0.3s ease;
+  }
+
+  @keyframes slide-down {
+    from {
+      transform: translateY(-15px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   .local-navigation h5 {
@@ -157,9 +190,7 @@ onBeforeUnmount(() => {
   }
 
   .navigation-title {
-    position: sticky;
     cursor: pointer;
-    z-index: 10;
   }
 
   .navigation-links {
