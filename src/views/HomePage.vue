@@ -36,63 +36,51 @@ const navigationItems = [
         <section id="co2-footprint">
           <h2>Was ist ein CO₂-Fußabdruck?</h2>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-            sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-            rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-            amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
-            et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-            sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in
-            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-            vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-            delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
-            consectetuer.
+            Der CO₂-Fußabdruck beschreibt die Menge an Treibhausemissionen, die durch eine Person,
+            ein Unternehmen, ein Produkt oder eine bestimmte Tätigkeit verursacht wird. Dabei werden
+            neben Kohlendioxid (CO₂) auch andere Treibhausgase wie Methan (CH₄) und
+            Distickstoffmonoxid (N₂O) berücksichtigt, die in CO₂-Äquivalente umgerechnet werden. Bei
+            Unternehmen entstehen Emissionen beispielsweise durch die Nutzung von Energie,
+            Produktionsprozesse, Transporte oder die Herstellung und Verwendung von Materialien. Der
+            CO₂-Fußabdruck hilft dabei, die verschiedenen Emissionsquellen sichtbar zu machen und
+            ihre Auswirkungen auf das Klima besser einzuschätzen.
           </p>
         </section>
 
         <section id="importance">
           <h2>Warum ist das wichtig?</h2>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-            sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-            rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-            amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
-            et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-            sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in
-            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-            vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-            delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
-            consectetuer.
+            Treibhausgasemissionen tragen wesentlich zur Erwärmung der Erde und damit zum
+            fortschreitenden Klimawandel bei. Durch den zunehmenden Ausstoß von Treibhausgasen
+            verstärkt sich der natürliche Treibhauseffekt, wodurch sich die globale
+            Durchschnittstemperatur erhöht. Die Folgen sind bereits heute sichtbar und umfassen
+            unter anderem häufigere und intensivere Hitzewellen, veränderte Niederschlagsmuster, das
+            Abschmelzen von Gletschern sowie einen steigenden Meeresspiegel. Auch Ökosysteme,
+            Landwirtschaft und die Lebensbedingungen vieler Menschen können dadurch beeinträchtigt
+            werden. Gleichzeitig können sich langfristige Veränderungen nur begrenzt rückgängig
+            machen lassen. Deshalb ist es wichtig, die Entstehung von Treibhausgasemissionen zu
+            reduzieren und Maßnahmen zum Klimaschutz frühzeitig umzusetzen.
           </p>
         </section>
 
         <section id="transparency">
           <h2>Transparenz</h2>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-            sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
-            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
-            aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea
-            rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
-            amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos
-            et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-            sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in
-            vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at
-            vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
-            delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
-            consectetuer.
+            Transparenz über CO₂-Emissionen schafft eine Grundlage dafür, die Klimawirkung von
+            Unternehmen nachvollziehbar darzustellen. Durch die übersichtliche Aufbereitung von
+            Emissionsdaten können Unterschiede zwischen Unternehmen und Ländern leichter erkannt und
+            miteinander verglichen werden. Gleichzeitig ermöglicht eine transparente Darstellung,
+            Entwicklungen über einen bestimmten Zeitraum zu beobachten und Veränderungen sichtbar zu
+            machen. Auf dieser Website werden Emissionsdaten beispielhaft dargestellt und können
+            nach verschiedenen Kriterien betrachtet und gefiltert werden. Dadurch soll
+            veranschaulicht werden, wie umfangreiche Daten verständlich aufbereitet und miteinander
+            verglichen werden können. Die auf dieser Website verwendeten Werte sind dabei
+            ausschließlich fiktiv und stellen keine tatsächlichen Emissionswerte der dargestellten
+            Unternehmen oder Länder dar. Eine transparente Darstellung von Emissionsdaten kann
+            grundsätzlich dazu beitragen, Informationen zugänglicher zu machen und ein besseres
+            Verständnis für die Größenordnung von Treibhausgasemissionen zu schaffen. Gleichzeitig
+            ermöglicht sie es, Zusammenhänge und Unterschiede zwischen verschiedenen Datensätzen
+            leichter zu erkennen.
           </p>
         </section>
       </div>

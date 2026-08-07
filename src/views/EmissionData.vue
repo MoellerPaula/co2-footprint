@@ -98,7 +98,7 @@ const sortedEmissions = computed(() => {
 
           <p class="introduction">
             Die folgende Übersicht zeigt die CO₂-Emissionen verschiedener Unternehmen und Länder.
-            Nutzen Sie die Filter, um gezielt nach einem Unternehmen oder einem Land zu suchen und
+            Nutze die Filter, um gezielt nach einem Unternehmen oder einem Land zu suchen und
             die Daten miteinander zu vergleichen.
           </p>
         </section>
