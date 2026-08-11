@@ -110,7 +110,7 @@ const sortedEmissions = computed(() => {
             <div class="filter">
               <label for="country-filter">Land:</label>
 
-              <select id="country-filter" v-model="selectedCountry">
+              <select id="country-filter" v-model="selectedCountry" class="form-select">
                 <option value="">Alle Länder</option>
 
                 <option v-for="country in countries" :key="country" :value="country">
@@ -122,7 +122,7 @@ const sortedEmissions = computed(() => {
             <div class="filter">
               <label for="company-filter">Unternehmen:</label>
 
-              <select id="company-filter" v-model="selectedCompany">
+              <select id="company-filter" v-model="selectedCompany" class="form-select">
                 <option value="">Alle Unternehmen</option>
 
                 <option v-for="company in companies" :key="company" :value="company">
@@ -137,30 +137,33 @@ const sortedEmissions = computed(() => {
               <thead>
                 <tr>
                   <th @click="sortBy('company')">
-                    Unternehmen
-                    <span v-if="sortColumn !== 'company'">▲▼</span>
-                    <span v-else>
-                      {{ sortDirection === 'asc' ? '▲' : '▼' }}
-                    </span>
+                    <div class="table-header">
+                      <span>Unternehmen</span>
+                      <span class="sort-icon">
+                        {{ sortColumn === 'company' ? (sortDirection === 'asc' ? '▲' : '▼') : '▲▼' }}
+                      </span>
+                    </div>
                   </th>
 
                   <th @click="sortBy('country')">
-                    Land
-                    <span v-if="sortColumn !== 'country'">▲▼</span>
-                    <span v-else>
-                      {{ sortDirection === 'asc' ? '▲' : '▼' }}
-                    </span>
+                    <div class="table-header">
+                      <span>Land</span>
+                      <span class="sort-icon">
+                        {{ sortColumn === 'country' ? (sortDirection === 'asc' ? '▲' : '▼') : '▲▼' }}
+                      </span>
+                    </div>
                   </th>
 
                   <th @click="sortBy('emissions')">
-                    Emissionen
-                    <span v-if="sortColumn !== 'emissions'">▲▼</span>
-                    <span v-else>
-                      {{ sortDirection === 'asc' ? '▲' : '▼' }}
-                    </span>
+                    <div class="table-header">
+                      <span>Emissionen</span>
+                      <span class="sort-icon">
+                        {{ sortColumn === 'emissions' ? (sortDirection === 'asc' ? '▲' : '▼') : '▲▼' }}
+                      </span>
+                    </div>
                   </th>
                 </tr>
-              </thead>
+              </thead> 
 
               <tbody>
                 <tr v-for="emission in sortedEmissions" :key="emission.id">
@@ -231,11 +234,6 @@ const sortedEmissions = computed(() => {
   font-weight: bold;
 }
 
-.filter select {
-  padding: 0.5rem;
-  border-radius: 8px;
-}
-
 .emission-data table {
   width: 100%;
   border-collapse: separate;
@@ -294,6 +292,17 @@ const sortedEmissions = computed(() => {
 
 .table-wrapper table {
   min-width: 600px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sort-icon {
+  margin-left: 1rem;
+  white-space: nowrap;
 }
 
 @media (width <= 768px) {
