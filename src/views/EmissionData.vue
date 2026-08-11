@@ -98,8 +98,8 @@ const sortedEmissions = computed(() => {
 
           <p class="introduction">
             Die folgende Übersicht zeigt die CO₂-Emissionen verschiedener Unternehmen und Länder.
-            Nutze die Filter, um gezielt nach einem Unternehmen oder einem Land zu suchen und
-            die Daten miteinander zu vergleichen.
+            Nutze die Filter, um gezielt nach einem Unternehmen oder einem Land zu suchen und die
+            Daten miteinander zu vergleichen.
           </p>
         </section>
 
@@ -140,7 +140,9 @@ const sortedEmissions = computed(() => {
                     <div class="table-header">
                       <span>Unternehmen</span>
                       <span class="sort-icon">
-                        {{ sortColumn === 'company' ? (sortDirection === 'asc' ? '▲' : '▼') : '▲▼' }}
+                        {{
+                          sortColumn === 'company' ? (sortDirection === 'asc' ? '▲' : '▼') : '▲▼'
+                        }}
                       </span>
                     </div>
                   </th>
@@ -149,7 +151,9 @@ const sortedEmissions = computed(() => {
                     <div class="table-header">
                       <span>Land</span>
                       <span class="sort-icon">
-                        {{ sortColumn === 'country' ? (sortDirection === 'asc' ? '▲' : '▼') : '▲▼' }}
+                        {{
+                          sortColumn === 'country' ? (sortDirection === 'asc' ? '▲' : '▼') : '▲▼'
+                        }}
                       </span>
                     </div>
                   </th>
@@ -158,12 +162,14 @@ const sortedEmissions = computed(() => {
                     <div class="table-header">
                       <span>Emissionen</span>
                       <span class="sort-icon">
-                        {{ sortColumn === 'emissions' ? (sortDirection === 'asc' ? '▲' : '▼') : '▲▼' }}
+                        {{
+                          sortColumn === 'emissions' ? (sortDirection === 'asc' ? '▲' : '▼') : '▲▼'
+                        }}
                       </span>
                     </div>
                   </th>
                 </tr>
-              </thead> 
+              </thead>
 
               <tbody>
                 <tr v-for="emission in sortedEmissions" :key="emission.id">
@@ -282,7 +288,7 @@ const sortedEmissions = computed(() => {
 
 #data-context {
   margin-top: 3rem;
-  padding-bottom: 2rem;
+  padding-bottom: 8rem;
 }
 
 .table-wrapper {
