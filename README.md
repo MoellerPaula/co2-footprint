@@ -1,16 +1,66 @@
-# CO2-Footprint
+# CO2-Fußabdruck
 
-Webanwendung zur Darstellung und Analyse von CO2-Emissionen nach Ländern und Unternehmen.
+Webanwendung zur übersichtlichen Darstellung und zum Vergleich von CO₂-Emissionen verschiedener Unternehmen und Länder.
+
+Das Projekt wurde im Rahmen eines Hochschulprojekts entwickelt. Die auf der Website dargestellten Emissionswerte sind fiktiv und dienen ausschließlich der Veranschaulichung.
+
+## Funktionen
+- Filterung und Sortierung der Emissionsdaten nach Unternehmen, Land und Emissionshöhe
+- Globale Navigation zwischen den Seiten
+- Lokale Navigation innerhalb der Seiten
+- Anpassung der lokalen Navigation an die Schreibrichtung (LTR/RTL)
+- Responsive Darstellung
+- Footer mit rechtlichen Hinweisen
+
 
 ## Technologien
-
-- Vue.js 3
+- Vue 3
 - Vite
 - Bootstrap 5
 - JavaScript
 - HTML5
 - CSS3
+- ESLint
+- Prettier
 
-## Projektstatus
+## Installation und Ausführung
 
-In Entwicklung.
+Voraussetzung für die Ausführung des Projekts ist eine installierte Node.js-Version.
+
+1. Repository klonen:
+   ```bash
+   git clone <repository-url>
+   cd co2-footprint
+   ```
+   
+2. Abhängigkeiten installieren:
+   ```bash
+   npm install
+   ```
+
+3. Entwicklungsserver starten:
+   ```bash
+   npm run dev
+   ```
+
+
+## Projektstruktur
+
+```text
+src/
+├── assets/
+├── components/
+│   ├── AppFooter.vue
+│   ├── AppHeader.vue
+│   └── LocalNavigation.vue
+├── data/
+│   └── emissions.json
+├── router/
+│   └── index.js
+├── views/
+│   ├── HomePage.vue
+│   └── EmissionData.vue
+├── App.vue
+├── main.js
+└── style.css
+```
