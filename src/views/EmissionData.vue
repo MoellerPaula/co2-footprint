@@ -110,7 +110,7 @@ const sortedEmissions = computed(() => {
             <div class="filter">
               <label for="country-filter">Land:</label>
 
-              <select id="country-filter" v-model="selectedCountry" class="form-select">
+              <select id="country-filter" v-model="selectedCountry">
                 <option value="">Alle Länder</option>
 
                 <option v-for="country in countries" :key="country" :value="country">
@@ -122,7 +122,7 @@ const sortedEmissions = computed(() => {
             <div class="filter">
               <label for="company-filter">Unternehmen:</label>
 
-              <select id="company-filter" v-model="selectedCompany" class="form-select">
+              <select id="company-filter" v-model="selectedCompany">
                 <option value="">Alle Unternehmen</option>
 
                 <option v-for="company in companies" :key="company" :value="company">
@@ -201,6 +201,7 @@ const sortedEmissions = computed(() => {
 <style scoped>
 .emission-data {
   width: 100%;
+  min-width: 0;
 }
 
 .emission-data-content {
@@ -208,11 +209,13 @@ const sortedEmissions = computed(() => {
   align-items: flex-start;
   gap: 3rem;
   margin: 2rem;
+  min-width: 0;
 }
 
 .page-content {
   width: 100%;
   max-width: 100%;
+  min-width: 0;
 }
 
 .page-content section {
@@ -347,11 +350,6 @@ const sortedEmissions = computed(() => {
   .filter label,
   .filter select {
     font-size: 0.85rem;
-  }
-
-  .table-wrapper table {
-    width: auto;
-    min-width: unset;
   }
 }
 </style>

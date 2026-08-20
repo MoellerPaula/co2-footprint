@@ -16,13 +16,13 @@ onBeforeUnmount(() => window.removeEventListener('scroll', handleScroll));
 </script>
 
 <template>
-  <header class="ps-5 pt-5" :class="{ 'scrolling-up': scrollingUp }">
-    <div class="d-flex align-items-center gap-5">
+  <header :class="{ 'scrolling-up': scrollingUp }">
+    <div class="header-brand">
       <img src="../assets/LogoCO2Fußabdruck3.svg" alt="Logo" />
       <h1>CO₂ Fußabdruck</h1>
     </div>
 
-    <nav class="d-flex justify-content-end gap-5">
+    <nav>
       <RouterLink to="/">Startseite</RouterLink>
       <RouterLink to="/emissionen">Emissionen</RouterLink>
     </nav>
@@ -37,6 +37,14 @@ header {
   background-color: white;
   border-bottom: 1px solid #c0c0c0ff;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  padding-left: 3rem;
+  padding-top: 3rem;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
 }
 
 img {
@@ -50,6 +58,9 @@ h1 {
 }
 
 nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 3rem;
   padding-right: 6rem;
   padding-bottom: 1.5rem;
 }
@@ -67,9 +78,9 @@ nav a.router-link-active {
 
 @media (width <= 768px) {
   header {
-    padding-left: 1rem !important;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+    padding-left: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     position: relative;
     top: auto;
   }
@@ -90,8 +101,8 @@ nav a.router-link-active {
     }
   }
 
-  header > div {
-    gap: 1rem !important;
+  .header-brand {
+    gap: 1rem;
   }
 
   img {

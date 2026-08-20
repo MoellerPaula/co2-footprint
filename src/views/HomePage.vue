@@ -29,7 +29,7 @@ const navigationItems = [
         </p>
       </div>
     </section>
-    <div class="homepage-content d-flex align-items-start gap-5">
+    <div class="homepage-content">
       <LocalNavigation :items="navigationItems" />
 
       <div class="page-content">
@@ -129,6 +129,9 @@ const navigationItems = [
 }
 
 .homepage-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
   margin: 2rem;
 }
 
