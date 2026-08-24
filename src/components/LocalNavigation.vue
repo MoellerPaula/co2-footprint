@@ -25,12 +25,24 @@ const handleScroll = () => {
 
 const handleLinkClick = async (event, id) => {
   event.preventDefault();
+
+  const target = document.getElementById(id);
+
+  if (!target) return;
+
+  const currentPosition = window.scrollY;
+  const targetPosition = target.getBoundingClientRect().top + currentPosition;
+
+  if (targetPosition > currentPosition) {
+    window.dispatchEvent(new CustomEvent('anchor-scroll-down'));
+  }
+
   scrollingUp.value = true;
   isScrollingToAnchor = true;
 
   await nextTick();
 
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  target.scrollIntoView({ behavior: 'smooth' });
 
   setTimeout(() => {
     isScrollingToAnchor = false;

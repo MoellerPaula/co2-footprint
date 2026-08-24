@@ -3,16 +3,36 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const scrollingUp = ref(false);
 let lastScrollPosition = 0;
+let anchorScrolling = false;
 
 const handleScroll = () => {
   if (window.innerWidth > 768) return;
+  if (anchorScrolling) return;
+
   const current = window.scrollY;
   scrollingUp.value = current < lastScrollPosition;
   lastScrollPosition = current;
 };
 
-onMounted(() => window.addEventListener('scroll', handleScroll));
-onBeforeUnmount(() => window.removeEventListener('scroll', handleScroll));
+const showHeader = () => {
+  anchorScrolling = true;
+  scrollingUp.value = true;
+
+  setTimeout(() => {
+    anchorScrolling = false;
+    lastScrollPosition = window.scrollY;
+  }, 800);
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('anchor-scroll-down', showHeader);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener('anchor-scroll-down', showHeader);
+});
 </script>
 
 <template>
