@@ -2,7 +2,7 @@
 
 Webanwendung zur übersichtlichen Darstellung und zum Vergleich von CO₂-Emissionen verschiedener Unternehmen und Länder.
 
-Das Projekt wurde im Rahmen eines Hochschulprojekts entwickelt. Die auf der Website dargestellten Emissionswerte sind fiktiv und dienen ausschließlich der Veranschaulichung.
+Die Webseite wurde im Rahmen eines Hochschulprojekts entwickelt. Die dargestellten Emissionswerte sind fiktiv und dienen ausschließlich der Veranschaulichung.
 
 ## Funktionen
 - Filterung und Sortierung der Emissionsdaten nach Unternehmen, Land und Emissionshöhe
@@ -16,7 +16,6 @@ Das Projekt wurde im Rahmen eines Hochschulprojekts entwickelt. Die auf der Webs
 ## Technologien
 - Vue 3
 - Vite
-- Bootstrap 5
 - JavaScript
 - HTML5
 - CSS3
