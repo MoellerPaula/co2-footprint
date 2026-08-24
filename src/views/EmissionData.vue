@@ -338,7 +338,7 @@ const sortedEmissions = computed(() => {
   }
 
   #data-context {
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
   }
 
   .emission-data th,
@@ -350,6 +350,10 @@ const sortedEmissions = computed(() => {
   .filter label,
   .filter select {
     font-size: 0.85rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 }
 </style>

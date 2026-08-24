@@ -135,18 +135,17 @@ const navigationItems = [
   margin: 2rem;
 }
 
+.page-content section {
+  scroll-margin-top: 190px;
+  margin-bottom: 2rem;
+}
+
 @media (width <= 768px) {
   .homepage-content {
     flex-direction: column;
     margin: 1rem;
   }
-}
 
-.page-content section {
-  scroll-margin-top: 190px;
-}
-
-@media (width <= 768px) {
   .hero {
     margin: 1rem;
   }
@@ -166,6 +165,10 @@ const navigationItems = [
 
   .hero-text p {
     font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 }
 </style>
