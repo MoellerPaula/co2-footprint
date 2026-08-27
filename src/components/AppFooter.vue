@@ -13,6 +13,17 @@
         <RouterLink to="/rechtliche-hinweise">Rechtliche Hinweise</RouterLink>
       </nav>
     </div>
+
+    <div class="image-credit">
+      Hero-Bild:
+      <a
+        href="https://www.pexels.com/de-de/foto/vogelperspektive-wald-baume-luftaufnahme-3923724/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Pok Rie / Pexels
+      </a>
+    </div>
   </footer>
 </template>
 
@@ -55,10 +66,25 @@
   text-decoration: none;
 }
 
+.image-credit {
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.image-credit a {
+  color: white;
+  text-decoration: none;
+}
+
+.image-credit a:hover {
+  text-decoration: underline;
+}
+
 @media (width <= 768px) {
   .footer-content {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
     padding: 1rem;
   }
