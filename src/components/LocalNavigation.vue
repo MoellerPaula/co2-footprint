@@ -13,10 +13,28 @@ const scrollingUp = ref(false);
 
 let lastScrollPosition = 0;
 let isScrollingToAnchor = false;
+let isTogglingMenu = false;
+
+const toggleMenu = () => {
+  if (!isMobile.value) return;
+
+  isTogglingMenu = true;
+  isOpen.value = !isOpen.value;
+  scrollingUp.value = true;
+  lastScrollPosition = window.scrollY;
+
+  window.dispatchEvent(new CustomEvent('menu-toggle'));
+
+  setTimeout(() => {
+    isTogglingMenu = false;
+    lastScrollPosition = window.scrollY;
+  }, 100);
+};
 
 const handleScroll = () => {
   if (window.innerWidth > 768) return;
   if (isScrollingToAnchor) return;
+  if (isTogglingMenu) return;
 
   const current = window.scrollY;
   scrollingUp.value = current < lastScrollPosition;
@@ -94,7 +112,7 @@ onBeforeUnmount(() => {
 
 <template>
   <nav class="local-navigation" :class="{ 'scrolling-up': scrollingUp }">
-    <h5 class="navigation-title" @click="isMobile && (isOpen = !isOpen)">
+    <h5 class="navigation-title" @click="toggleMenu">
       Auf dieser Seite
       <span v-if="isMobile">
         {{ isOpen ? '▲' : '▼' }}

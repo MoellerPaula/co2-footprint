@@ -4,10 +4,12 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 const scrollingUp = ref(false);
 let lastScrollPosition = 0;
 let anchorScrolling = false;
+let menuToggling = false;
 
 const handleScroll = () => {
   if (window.innerWidth > 768) return;
   if (anchorScrolling) return;
+  if (menuToggling) return;
 
   const current = window.scrollY;
   scrollingUp.value = current < lastScrollPosition;
@@ -24,14 +26,26 @@ const showHeader = () => {
   }, 800);
 };
 
+const handleMenuToggle = () => {
+  menuToggling = true;
+  scrollingUp.value = true;
+
+  setTimeout(() => {
+    menuToggling = false;
+    lastScrollPosition = window.scrollY;
+  }, 100);
+};
+
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
   window.addEventListener('anchor-scroll-down', showHeader);
+  window.addEventListener('menu-toggle', handleMenuToggle);
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll);
   window.removeEventListener('anchor-scroll-down', showHeader);
+  window.removeEventListener('menu-toggle', handleMenuToggle);
 });
 </script>
 
