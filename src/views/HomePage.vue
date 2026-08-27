@@ -20,7 +20,10 @@ const navigationItems = [
 <template>
   <main class="homepage">
     <section class="hero">
-      <img src="/images/wald.jpg" alt="Dichter grüner Tannenwald aus der Vogelperspektive" />
+      <img
+        src="/images/pexels-pok-rie-33563-3923724.jpg"
+        alt="Dichter grüner Tannenwald aus der Vogelperspektive"
+      />
 
       <div class="hero-text">
         <h1>CO₂ Fußabdruck</h1>
