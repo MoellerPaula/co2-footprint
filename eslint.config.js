@@ -5,6 +5,9 @@ import prettier from "eslint-config-prettier";
 
 export default [
   {
+    ignores: ["dist/**"],
+  },
+  {
     files: ["**/*.{js,vue}"],
     languageOptions: {
       globals: globals.browser,

@@ -5,6 +5,7 @@ Webanwendung zur übersichtlichen Darstellung und zum Vergleich von CO₂-Emissi
 Die Webseite wurde im Rahmen eines Hochschulprojekts entwickelt. Die dargestellten Emissionswerte sind fiktiv und dienen ausschließlich der Veranschaulichung.
 
 ## Funktionen
+
 - Filterung und Sortierung der Emissionsdaten nach Unternehmen, Land und Emissionshöhe
 - Globale Navigation zwischen den Seiten
 - Lokale Navigation innerhalb der Seiten
@@ -12,8 +13,8 @@ Die Webseite wurde im Rahmen eines Hochschulprojekts entwickelt. Die dargestellt
 - Responsive Darstellung
 - Footer mit rechtlichen Hinweisen
 
-
 ## Technologien
+
 - Vue 3
 - Vite
 - JavaScript
@@ -27,12 +28,14 @@ Die Webseite wurde im Rahmen eines Hochschulprojekts entwickelt. Die dargestellt
 Voraussetzung für die Ausführung des Projekts ist eine installierte Node.js-Version.
 
 1. Repository klonen:
+
    ```bash
    git clone <repository-url>
    cd co2-footprint
    ```
-   
+
 2. Abhängigkeiten installieren:
+
    ```bash
    npm install
    ```
@@ -41,7 +44,6 @@ Voraussetzung für die Ausführung des Projekts ist eine installierte Node.js-Ve
    ```bash
    npm run dev
    ```
-
 
 ## Projektstruktur
 
