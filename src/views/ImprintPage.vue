@@ -28,9 +28,7 @@
         <p>
           Telefon: +49 123 456789<br />
           E-Mail:
-          <a href="mailto:fußabdruck-info@example.com">
-            fußabdruck-info@example.com
-          </a>
+          <a href="mailto:fußabdruck-info@example.com"> fußabdruck-info@example.com </a>
         </p>
       </section>
 
@@ -47,11 +45,7 @@
       <section>
         <h2>Umsatzsteuer-Identifikationsnummer</h2>
 
-        <p>
-          Umsatzsteuer-Identifikationsnummer gemäß § 27 a
-          Umsatzsteuergesetz:
-          DE123456789
-        </p>
+        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: DE123456789</p>
       </section>
 
       <section>
@@ -69,17 +63,16 @@
         <h2>Haftung für Inhalte</h2>
 
         <p>
-          Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt
-          erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der
-          bereitgestellten Inhalte kann jedoch keine Gewähr übernommen werden.
+          Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die
+          Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte kann jedoch keine
+          Gewähr übernommen werden.
         </p>
 
         <p>
-          Als Diensteanbieter sind wir gemäß den allgemeinen gesetzlichen
-          Bestimmungen für eigene Inhalte auf dieser Website verantwortlich.
-          Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte
-          fremde Informationen zu überwachen oder nach Umständen zu forschen,
-          die auf eine rechtswidrige Tätigkeit hinweisen.
+          Als Diensteanbieter sind wir gemäß den allgemeinen gesetzlichen Bestimmungen für eigene
+          Inhalte auf dieser Website verantwortlich. Wir sind jedoch nicht verpflichtet,
+          übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
+          forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
         </p>
       </section>
 
@@ -87,10 +80,9 @@
         <h2>Haftung für Links</h2>
 
         <p>
-          Diese Website kann Links zu externen Websites Dritter enthalten.
-          Auf deren Inhalte haben wir keinen Einfluss. Für die Inhalte der
-          verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
-          verantwortlich.
+          Diese Website kann Links zu externen Websites Dritter enthalten. Auf deren Inhalte haben
+          wir keinen Einfluss. Für die Inhalte der verlinkten Seiten ist stets der jeweilige
+          Anbieter oder Betreiber verantwortlich.
         </p>
       </section>
 
@@ -98,10 +90,9 @@
         <h2>Urheberrecht</h2>
 
         <p>
-          Die auf dieser Website erstellten Inhalte und Werke unterliegen dem
-          deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung,
-          Verbreitung und jede Art der Verwertung außerhalb der Grenzen des
-          Urheberrechts bedürfen der vorherigen Zustimmung des jeweiligen
+          Die auf dieser Website erstellten Inhalte und Werke unterliegen dem deutschen
+          Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung
+          außerhalb der Grenzen des Urheberrechts bedürfen der vorherigen Zustimmung des jeweiligen
           Rechteinhabers.
         </p>
       </section>
@@ -138,5 +129,25 @@
 
 .page-content a {
   color: #006b0e;
+}
+
+@media (width <= 768px) {
+  .page-content {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .page-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .page-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .page-content p {
+    font-size: 1rem;
+  }
 }
 </style>
