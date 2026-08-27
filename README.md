@@ -21,6 +21,7 @@ Die Webseite wurde im Rahmen eines Hochschulprojekts entwickelt. Die dargestellt
 - HTML5
 - CSS3
 - ESLint
+- Stylelint
 - Prettier
 
 ## Installation und Ausführung
