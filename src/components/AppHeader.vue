@@ -122,7 +122,7 @@ nav a.router-link-active {
   header.scrolling-up {
     position: sticky;
     top: 0;
-    animation: slideDown 0.3s ease;
+    animation: slide-down 0.3s ease;
   }
 
   @keyframes slide-down {
