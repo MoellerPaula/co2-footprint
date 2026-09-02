@@ -14,7 +14,7 @@
       </nav>
     </div>
 
-    <div class="image-credit">
+    <div v-if="$route.path === '/'" class="image-credit">
       Hero-Bild:
       <a
         href="https://www.pexels.com/de-de/foto/vogelperspektive-wald-baume-luftaufnahme-3923724/"
