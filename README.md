@@ -62,6 +62,9 @@ src/
 ├── views/
 │   ├── HomePage.vue
 │   └── EmissionData.vue
+│   └── ImprintPage.vue
+│   └── LegalNotice.vue
+│   └── PrivacyPolicy.vue
 ├── App.vue
 ├── main.js
 └── style.css
